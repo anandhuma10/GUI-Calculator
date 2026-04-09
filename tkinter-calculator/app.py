@@ -67,5 +67,10 @@ for b in buttons:
     if col > 3:
         col = 0
         row += 1
+for i in range(4):
+    window.grid_columnconfigure(i, weight=1)
+
+for i in range(6):
+    window.grid_rowconfigure(i, weight=1)
 
 window.mainloop()
