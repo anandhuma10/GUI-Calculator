@@ -21,12 +21,16 @@ def calculate():
     except:
         display.delete(0, END)
         display.insert(0, "Error")
+def backspace():
+    current = display.get()
+    display.delete(0, END)
+    display.insert(0, current[:-1])
 
 buttons = [
     '7','8','9','/',
     '4','5','6','*',
     '1','2','3','-',
-    '0','C','=','+'
+    '0','C','+','⌫','='
 ]
 
 row = 1
@@ -52,6 +56,16 @@ for b in buttons:
             font=("Arial", 12),
             command=calculate
         ).grid(row=row, column=col, padx=5, pady=5)
+
+    elif b == "⌫":
+        Button(
+        window,
+        text=b,
+        width=7,
+        height=2,
+        font=("Arial", 12),
+        command=backspace
+    ).grid(row=row, column=col, padx=5, pady=5)
 
     else:
         Button(
